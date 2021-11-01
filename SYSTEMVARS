@@ -1,0 +1,6 @@
+source /opt/intel/oneapi/setvars.sh intel64
+
+MKLROOT=/opt/intel/oneapi/mkl/latest/
+
+Για να ανοίξει το advisor-gui:
+/opt/intel/oneapi/advisor/latest/bin64/advisor-gui

@@ -6,22 +6,20 @@ MKLOPTIONS+= -DMKL_ILP64 -I${MKLROOT}/include -L/opt/intel/compilers_and_librari
 else
 Arch=ia32
 CXXFLAGS+= -m32 
-endif #
+endif 
 
 CXX = g++
-ADV_DIR = $(ADVISOR_2018_DIR)
 
-all: build
-release: build
-debug: build_debug
+all: mLU_serial
 
 build: mmult_serial 
 
-mLU_serial: mLU_serial.cpp
-	$(CXX) $(CXXFLAGS) mLU_serial.cpp -fopenmp -o mLU_serial -O3 -g $(MKLFLAGS) $(MKLOPTIONS)
+mLU_serial: test_blockLUfactorization.cpp blockLUfactorization.cpp
+	$(CXX) $(CXXFLAGS) test_blockLUfactorization.cpp blockLUfactorization.cpp -fopenmp -o mLU_serial -O3 -g $(MKLFLAGS) $(MKLOPTIONS)
+	
+EXECUTABLES=mLU_serial
 
-EXECUTABLES: mLu_serial
-
-clean::
+clean:
 	rm -f $(EXECUTABLES) *.o
+
 	
