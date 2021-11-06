@@ -14,8 +14,8 @@ all: mLU_serial
 
 build: mmult_serial 
 
-mLU_serial: test_blockLUfactorization.cpp blockLUfactorization.cpp
-	$(CXX) $(CXXFLAGS) test_blockLUfactorization.cpp blockLUfactorization.cpp -fopenmp -o mLU_serial -O3 -g $(MKLFLAGS) $(MKLOPTIONS)
+mLU_serial: test_blockLUfactorization.cpp blockLUfactorization.cpp lapack_wrapper.cpp
+	$(CXX) $(CXXFLAGS) test_blockLUfactorization.cpp blockLUfactorization.cpp lapack_wrapper.cpp -fopenmp -o mLU_serial -O3  -g $(MKLFLAGS) $(MKLOPTIONS)
 	
 EXECUTABLES=mLU_serial
 

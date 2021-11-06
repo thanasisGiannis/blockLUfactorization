@@ -1,27 +1,22 @@
+template <typename D>
 class matrix {        
-  public:    
-    matrix();
-    int numRows();
-    int numColumns();
+  public:  
+    matrix(int,int, D*,int);//{cout << "Hello" << endl;}
+    ~matrix(){}
+    void LU();
+    void LU(int);
+    void printMatrix(char );
+  private:
+    int  num_rows; // number of matrix rows
+    int  num_cols; // number of matrix columns
+    D   *Mat;
+    int  ldMat;
     
-  protected:
-    int rows; // number of matrix rows
-    int cols; // number of matrix columns
-    void* data;
-    void* L;
-    void* U;
+    void createRandMatrix();
 };
 
 
 
-class Dmatrix: public matrix {        
-  public:    
-    Dmatrix(int trows, int tcols);
-    ~Dmatrix();
-    void createRandomMatrix();    
-    void viewRandMatrix();
-
-};
 
 
 
